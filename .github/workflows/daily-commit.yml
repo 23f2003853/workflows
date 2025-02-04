@@ -17,7 +17,7 @@ jobs:
       run: |
         echo "This is a daily commit" > daily_commit.txt
         git config --global user.email "23f2003853@ds.study.iitm.ac.in"
-        git config --global user.name "GitHub Actions"
+        git config --global user.name "23f2003853"
         git add daily_commit.txt
         git commit -m "Daily commit from 23f2003853@ds.study.iitm.ac.in"
         git push
