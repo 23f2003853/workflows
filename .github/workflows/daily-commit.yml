@@ -13,7 +13,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Make a dummy change with email 23f2003853@ds.study.iitm.ac.in in the commit
+    - name: 23f2003853@ds.study.iitm.ac.in
       run: |
         echo "This is a daily commit" > daily_commit.txt
         git config --global user.email "23f2003853@ds.study.iitm.ac.in"
