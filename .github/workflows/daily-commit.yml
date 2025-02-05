@@ -2,25 +2,34 @@ name:  23f2003853@ds.study.iitm.ac
 
 on:
   schedule:
-    - cron: '0 04 15 * *' # Runs daily at 12:00 PM UTC
-  workflow_dispatch: # This allows manual trigger
+    - cron: '0 10 * * *'  # Runs daily at 10:00 AM UTC
+  workflow_dispatch:  # Allows for manual triggering
 
 jobs:
-  commit:
+  daily-commit:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 23f2003853@ds.study.iitm.ac
-        uses: actions/checkout@v2
+      # Step to check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Make a dummy change with email 23f2003853@ds.study.iitm.ac.in in the commit
+      # Step to create a commit with your email in the name
+      - name: Create a commit with email 23f2003853@ds.study.iitm.ac.in
         run: |
-          echo "This is a daily commit" > daily_commit.txt
+          # Create a new file or update an existing one
+          echo "This is a daily commit" >> daily_commit.txt
+          
+          # Configure git settings
           git config --global user.email "23f2003853@ds.study.iitm.ac.in"
-          git config --global user.name "23f2003853"
+          git config --global user.name "GitHub Actions"
+          
+          # Stage and commit changes
           git add daily_commit.txt
-          git commit -m "Daily commit from 23f2003853@ds.study.iitm.ac.in"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.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 }}
+          git commit -m "Daily commit - Added daily_commit.txt"
 
+      # Step to push the commit back to the repository
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
