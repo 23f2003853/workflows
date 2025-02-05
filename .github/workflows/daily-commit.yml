@@ -1,4 +1,4 @@
-name:  23f2003853@ds.study.iitm.ac
+name: Daily Commit
 
 on:
   schedule:
@@ -34,11 +34,10 @@ jobs:
           # Commit and push changes
           git commit -m "Daily commit - $(date)" || exit 0  # Skip if no changes
 
-      # Step 4: Push the commit
+      # Step 4: Push the commit (using the latest version of the push action)
       - name: Push changes
-        uses: ad-m/github-push-action@v0.6
+        uses: ad-m/github-push-action@v0.7  # Use the latest stable version available
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main  # Ensure you're pushing to the correct branch
           force: true  # Optional: Force push to avoid errors
-
