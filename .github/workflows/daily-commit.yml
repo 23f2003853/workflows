@@ -18,7 +18,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Configure Git
+      - name: Set up Git user (23f2003853@ds.study.iitm.ac.in) #Configure Git
         run: |
           git config --global user.name "GitHub Actions Bot" #GitHub Actions
           git config --global user.email "23f2003853@ds.study.iitm.ac.in"
