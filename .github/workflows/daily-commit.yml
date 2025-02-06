@@ -1,4 +1,4 @@
-name: 23f2003853@ds.study.iitm.ac.in
+name: GitHub Pages Deployment
 
 on:
   schedule:
@@ -13,14 +13,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 23f2003853@ds.study.iitm.ac.in
+      - name: Checkout repository
         uses: actions/checkout@v3
         with:
           persist-credentials: false
 
-      - name: Set up Git user (23f2003853@ds.study.iitm.ac.in) #Configure Git
+      - name: Set up Git user
         run: |
-          git config --global user.name "23f2003853" #GitHub Actions
+          git config --global user.name "23f2003853"
           git config --global user.email "23f2003853@ds.study.iitm.ac.in"
 
       - name: Ensure changes are made
@@ -36,3 +36,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
           force: true  # Optional: Force push to avoid errors
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
