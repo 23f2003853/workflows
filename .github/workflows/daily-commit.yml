@@ -20,7 +20,7 @@ jobs:
 
       - name: Set up Git user (23f2003853@ds.study.iitm.ac.in) #Configure Git
         run: |
-          git config --global user.name "GitHub Actions Bot" #GitHub Actions
+          git config --global user.name "23f2003853" #GitHub Actions
           git config --global user.email "23f2003853@ds.study.iitm.ac.in"
 
       - name: Ensure changes are made
