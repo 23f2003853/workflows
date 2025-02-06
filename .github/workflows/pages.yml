@@ -1,0 +1,22 @@
+name: GitHub Pages Deployment
+
+on:
+  push:
+    branches:
+      - main  # Only trigger on pushes to the `main` branch
+    paths-ignore:
+      - "daily_commit.txt"  # Prevent build when only daily_commit.txt changes
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Pages
+        uses: actions/configure-pages@v2
+
+      - name: Deploy to GitHub Pages
+        uses: actions/upload-pages-artifact@v1
