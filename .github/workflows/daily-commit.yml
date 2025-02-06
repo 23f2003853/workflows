@@ -38,4 +38,4 @@ jobs:
           force: true  # Optional: Force push to avoid errors
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-pages-artifact@v1
