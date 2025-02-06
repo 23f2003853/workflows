@@ -41,5 +41,8 @@ jobs:
       - name: Set up GitHub Pages
         uses: actions/configure-pages@v2  # Configures the Pages environment
 
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v1  # Upload the Pages artifact for deployment
+
       - name: Deploy to GitHub Pages
-        uses: actions/upload-pages-artifact@v1  # Correct version for Pages deployment
+        uses: actions/deploy-pages@v2  # Deploy the artifact to GitHub Pages
