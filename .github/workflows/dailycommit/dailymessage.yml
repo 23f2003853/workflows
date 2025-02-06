@@ -1,0 +1,38 @@
+name: 23f2003853@ds.study.iitm.ac.in
+
+on:
+  schedule:
+    - cron: '0 10 * * *'  # Runs daily at 10:00 AM UTC
+  workflow_dispatch:  # Allows for manual triggering
+
+permissions:
+  contents: write
+
+jobs:
+  daily-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 23f2003853@ds.study.iitm.ac.in
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "23f2003853" #GitHub Actions
+          git config --global user.email "23f2003853@ds.study.iitm.ac.in"
+
+      - name: Ensure changes are made
+        run: |
+          echo "This is a daily commit - $(date)" >> daily_commit.txt
+          git add daily_commit.txt
+          git diff --cached || exit 0  # Exit if no changes
+          git commit -m "Daily commit - $(date)" || exit 0  # Skip if no changes
+
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          force: true  # Optional: Force push to avoid errors
