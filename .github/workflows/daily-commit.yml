@@ -37,5 +37,9 @@ jobs:
           branch: main
           force: true  # Optional: Force push to avoid errors
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      # GitHub Pages Deployment Steps:
+      - name: Set up GitHub Pages
+        uses: actions/configure-pages@v2  # Configure the Pages environment
+
+      - name: Deploy to GitHub Pages
+        uses: actions/upload-pages-artifact@v1  # Upload Pages artifact for deployment
